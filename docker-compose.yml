@@ -1,0 +1,16 @@
+version: "3"
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - OPENAI_API_KEY=your_openai_api_key
+      - MONGO_URI=your_mongodb_connection_string
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
